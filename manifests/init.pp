@@ -21,6 +21,9 @@ class netatalk {
 
   include concat::setup
   include netatalk::params
+  if $::osfamily == 'Redhat' {
+    require epel
+  }
 
   package { $netatalk::params::package_name:
     ensure => present,
