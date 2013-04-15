@@ -1,0 +1,7 @@
+#%PAM-1.0
+# Managed by Puppet
+# Configure netatalk to passthrough to system auth
+auth     include system-auth
+account  include system-auth
+password include system-auth
+session  include system-auth

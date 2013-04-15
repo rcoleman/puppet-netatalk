@@ -32,7 +32,14 @@ class netatalk {
     notify  => Service[$netatalk::params::service_name],
   }
 
-  file { $netatalk::params::global_config:
+  file { '/etc/pam.d/netatalk':
+      owner   => 'root',
+      group   => 'root',
+      mode    => '644',
+      source  => 'puppet:///modules/netatalk/pam.d.netatalk';
+  }
+
+ file { $netatalk::params::global_config:
     ensure => file,
     content => template('netatalk/netatalk.conf.erb'),
     require => Package[$netatalk::params::package_name],
