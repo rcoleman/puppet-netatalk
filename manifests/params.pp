@@ -1,14 +1,22 @@
 class netatalk::params {
 
   $package_name = 'netatalk'
-  $service_name = 'netatalk'
+  if ($::operatingsystemrelease >= 5 and $::operatingsystemrelease < 6) {
+    $service_name = 'atalk'
+  } else {
+    $service_name = 'netatalk'
+  }
   $afp_service = true
   $afp_port    = '548'
 
   case $::operatingsystem {
 
     'centos', 'redhat', 'fedora', 'scientific': {
-      $config_dir = '/etc/netatalk'
+      if ($::operatingsystemrelease >= 5 and $::operatingsystemrelease < 6) {
+        $config_dir = '/etc/atalk'
+      } else {
+        $config_dir = '/etc/netatalk'
+      }
       $global_config = "${config_dir}/netatalk.conf"
       $volumes_config = "${config_dir}/AppleVolumes.default"
       $afpd_config = "${config_dir}/afpd.conf"
