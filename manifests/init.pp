@@ -22,7 +22,6 @@ class netatalk(
     $volume_defaults        = undef ,
   ) {
 
-  include concat::setup
   include netatalk::params
 
   package { $netatalk::params::package_name:

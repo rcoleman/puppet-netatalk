@@ -8,5 +8,5 @@ description ''
 project_page 'https://github.com/ryanycoleman/puppet-netatalk/issues'
 
 ## Add dependencies, if any:
-dependency 'puppetlabs/concat', '>= 1.0.0'
-dependency 'puppetlabs/stdlib', '>= 2.0.0 <=4.1.0'
+dependency 'puppetlabs/concat', '>= 2.1.0'
+dependency 'puppetlabs/stdlib', '>= 2.0.0 <=4.2.0'
